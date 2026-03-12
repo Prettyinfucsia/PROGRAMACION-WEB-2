@@ -4,10 +4,15 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Programación Web 2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página de Introducción</title>
 </head>
 
 <body>
+
+<header id="header">
+
+<div class="encabezado">
 
 <h1>Universidad Nacional Autónoma de México</h1>
 <h2>Facultad de Estudios Superiores Aragón</h2>
@@ -16,17 +21,140 @@
 
 <p>Muñoz Mendieta Alejandra Jaqueline</p>
 
-<hr>
+<p id="fechaHora"></p>
 
-<h2>Menú de Programas</h2>
+</div>
 
-<button onclick="ejecutarPrograma1()">Programa 1</button> <button onclick="ejecutarPrograma2()">Programa 2</button> <button onclick="ejecutarPrograma3()">Programa 3</button>
+</header>
+
+<div id="contenedor">
+
+<nav id="menu">
+
+<button onclick="ejecutarPrograma1()">Programa 1</button>
+
+<button onclick="ejecutarPrograma2()">Programa 2</button>
+
+<button onclick="ejecutarPrograma3()">Programa 3</button>
+
+</nav>
+
+<main>
+
+<section id="inicio">
+
+<h2>Programas </h2>
+
+<p>Programación Web 2</p>
+
+<div id="resultado">
+
+<h3>Programa</h3>
+
+<div id="areaPrograma"></div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<footer id="footer">
+
+<p>© 2026 - Programación Web 2</p>
+
+</footer>
 
 <script src="programa1.js"></script>
 
 <script src="programa2.js"></script>
 
 <script src="programa3.js"></script>
+
+<script>
+
+function actualizarFechaHora(){
+
+const ahora = new Date();
+
+const fecha = ahora.toLocaleDateString();
+const hora = ahora.toLocaleTimeString();
+
+document.getElementById("fechaHora").innerHTML =
+"Fecha y hora: " + fecha + " - " + hora;
+
+}
+
+setInterval(actualizarFechaHora,1000);
+
+
+
+document.body.style.fontFamily="Arial";
+document.body.style.margin="0";
+document.body.style.background="#ffffff";
+
+
+let header=document.getElementById("header");
+
+header.style.background="#ffd6e7";
+header.style.textAlign="center";
+header.style.padding="25px";
+header.style.color="#7a2c4b";
+
+
+document.getElementById("contenedor").style.display="flex";
+
+
+let menu=document.getElementById("menu");
+
+menu.style.width="200px";
+menu.style.padding="20px";
+menu.style.background="#ffe4ef";
+
+
+let botones=menu.getElementsByTagName("button");
+
+for(let b of botones){
+
+b.style.width="100%";
+b.style.padding="10px";
+b.style.marginBottom="10px";
+b.style.background="#e75480";
+b.style.color="white";
+b.style.border="none";
+b.style.borderRadius="6px";
+b.style.cursor="pointer";
+
+}
+
+
+let seccion=document.getElementById("inicio");
+
+seccion.style.padding="25px";
+seccion.style.margin="25px";
+seccion.style.background="#ffffff";
+seccion.style.borderRadius="10px";
+seccion.style.border="2px solid #ffd6e7";
+seccion.style.boxShadow="0 2px 5px rgba(0,0,0,0.2)";
+
+
+let h2=seccion.getElementsByTagName("h2")[0];
+
+h2.style.color="#e75480";
+
+
+let footer=document.getElementById("footer");
+
+footer.style.background="#ffd6e7";
+footer.style.color="#7a2c4b";
+footer.style.textAlign="center";
+footer.style.padding="12px";
+footer.style.margin="25px";
+footer.style.borderRadius="10px";
+
+</script>
 
 </body>
 
