@@ -1,23 +1,44 @@
-function ejecutarPrograma3(){
-
 let numeroSecreto = Math.floor(Math.random()*10)+1;
-let intento;
 let intentos = 0;
 
-do{
+function ejecutarPrograma3(){
 
-intento = parseInt(prompt("Adivina el número entre 1 y 10"));
+document.getElementById("areaPrograma").innerHTML =
+
+`<h3>Adivina el número (1-10)</h3>
+
+<input type="number" id="intento">
+
+<button onclick="adivinar()">Intentar</button>
+
+<div id="salida"></div>
+`;
+
+}
+
+function adivinar(){
+
+let intento=parseInt(document.getElementById("intento").value);
+
 intentos++;
 
 if(intento > numeroSecreto){
-alert("El número es menor");
+
+document.getElementById("salida").innerHTML="El número es menor";
+
 }
+
 else if(intento < numeroSecreto){
-alert("El número es mayor");
+
+document.getElementById("salida").innerHTML="El número es mayor";
+
 }
 
-}while(intento !== numeroSecreto);
+else{
 
-alert("¡Correcto! Adivinaste el número en " + intentos + " intentos");
+document.getElementById("salida").innerHTML=
+`¡Correcto! Lo lograste en ${intentos} intentos`;
+
+}
 
 }
